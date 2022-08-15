@@ -22,7 +22,7 @@ class RosIndustrialCmakeBoilerplateConan(ConanFile):
             del self.options.fPIC
 
     def source(self):
-        git = tools.Git(folder='ros_industrial_cmake_boilerplate')
+        git = tools.Git()
         git.clone('https://github.com/ros-industrial/ros_industrial_cmake_boilerplate.git')
         git.checkout('0.3.0')
 
@@ -32,7 +32,7 @@ class RosIndustrialCmakeBoilerplateConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder='ros_industrial_cmake_boilerplate/ros_industrial_cmake_boilerplate')
+        cmake.configure(source_folder='ros_industrial_cmake_boilerplate')
         cmake.build()
 
     def package(self):

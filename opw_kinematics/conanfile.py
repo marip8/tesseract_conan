@@ -23,7 +23,7 @@ class OpwKinematicsConan(ConanFile):
             del self.options.fPIC
 
     def source(self):
-        git = tools.Git(folder="opw_kinematics")
+        git = tools.Git()
         git.clone('https://github.com/Jmeyer1292/opw_kinematics.git')
         git.checkout('0.5.0')
 
@@ -33,7 +33,7 @@ class OpwKinematicsConan(ConanFile):
 
     def build(self):
         cmake = CMake(self)
-        cmake.configure(source_folder="opw_kinematics")
+        cmake.configure()
         cmake.build()
 
     def package(self):
